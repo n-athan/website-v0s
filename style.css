@@ -48,9 +48,9 @@ button {
     font-family: 'Space Mono', monospace;
     font-size: 1em;
     background-color: hsla(21, 9%, 92%,0.3);
-    position: fixed;
-    top: 5%;
-    right: 0%;
+    position: relative;
+    top: -30%;
+    right: -45%;
 }
 
 .en {
@@ -107,7 +107,18 @@ p {
 }
 .footer {
     border-top: solid hsl(21, 9%, 92%) 3px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding-top: 5px;
 }
+
+.footer > h2 {
+    display: inline-block;
+    font-size: 1em;
+    padding-bottom:0;
+}
+
 
 /* NIET AANKOMEN - LINKS RECHTS ZITTEN DOOR ELKAAR OFZO? VET RAAR.*/
 .post:nth-child(odd) h2 {
@@ -156,7 +167,7 @@ p {
 
     .footer {
         grid-column: 2;
-        grid-row: -2;
+        grid-row: -0;
     }
     @media only screen and (max-width: 420px) {
         body {
