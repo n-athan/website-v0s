@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style_autoprefix.css">
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet"> 
+    <link rel="shortcut icon" href="favicon/favicon.ico">
+	<link rel="icon" sizes="16x16 32x32 64x64" href="favicon/favicon.ico">
+	<link rel="icon" type="image/png" sizes="196x196" href="favicon/favicon-192.png">
+	<link rel="icon" type="image/png" sizes="160x160" href="favicon/favicon-160.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96.png">
+	<link rel="icon" type="image/png" sizes="64x64" href="favicon/favicon-64.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16.png">
+	<link rel="apple-touch-icon" href="favicon/favicon-57.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="favicon/favicon-114.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="favicon/favicon-72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="favicon/favicon-144.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="favicon/favicon-60.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="favicon/favicon-120.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="favicon/favicon-76.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="favicon/favicon-152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="favicon/favicon-180.png">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="favicon/favicon-144.png">
+	<meta name="msapplication-config" content="favicon/browserconfig.xml">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
+    <title>Inkteger</title>
+</head>
+<body>
+    <div class="header">
+            <button id="lang" onclick="changeLanguage()">EN</button>
+    </div>
+    <div id="controls">
+        <div class="button" id="paintButtons">
+            <!-- Example Buttons, the actual buttons are calculated in game.js -->
+            <!-- <button onclick="paintColor(180)" aria-label="blue-paint-color" id="180" name="paint">Blue</button> -->
+            <!-- <button onclick="freeColor()" aria-label="no-paint-color" id="free" name="paint">Free 3/3</button> -->
+        </div>
+        <div class="settings">
+            <p class="en">#columns:</p> <p class="nl">#kolommen:</p> <input type="number" name="squares" id="squares" value="10"> 
+            <p class="en">#colors:</p>  <p class="nl">#kleuren:</p> <input type="number" name="colors" id="colors" value="4">
+        </div>
+        <div class="settings">
+            <button onclick="refresh()">Start!</button>
+        </div>
+        <div id="rules">
+            <h2 class="en">Rules</h2>
+            <ul class="en">
+                <li>Try to paint all the squares the right color.</li>
+                <li>The buttons set the ink color.</li>
+                <li>The first move is 'free', there is no ink selected yet. </li>
+                <li>You get a few extra 'free' tries. Be mindful when to use them.</li>
+                <li>If you paint a square the wrong color, you will lose.</li>
+                <li>The number on a square indicates the number of adjacent squares with the same color (left, right, top, bottom and diagonal).</li>
+                <li>A square is always adjecent to a square with the same color, this may be diagonal.</li>
+            </ul>
+            <h2 class="nl">Uitleg</h2>
+            <ul class="nl">
+                <li>Probeer alle vakjes de juiste kleur te verfen.</li>
+                <li>Met de knoppen kun je de kleur inkt kiezen.</li>
+                <li>De eerste zet is vrij, er is nog geen inkt geselecteerd.</li>
+                <li>Je krijgt een paar extra vrije zetten. Bedenk goed wanneer je die wilt gebruiken!</li>
+                <li>Als je een vakje de verkeerde kleur verft, dan heb je verloren.</li>
+                <li>Het getal op een vakje laat zien hoeveel aangrensende vakjes dezelfde kleur hebben. Vakjes kunnen in alle richtingen aangrensend zijn. (links, rechts, boven, onder en diagonaal).</li>
+                <li>Een vakje raakt altijd een ander vakje van dezelfde kleur, dit kan ook diagonaal zijn.</li>
+            </ul>
+        </div>
+
+    </div>
+    <script src="cell_babel.js"></script>
+    <script src="interface_babel.js"></script>
+    <script src="game_babel.js"></script>
+    <footer>
+        <div class="license">
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons-Licentie" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons licentie</a>.
+        </div>
+    </footer>
+</body>
+</html>

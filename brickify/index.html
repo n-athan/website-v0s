@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+    <title>Brickify</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main></main>
+    <div id="controls">
+        <div class="pixelation">
+            <input type="radio" name="choice" value="pixelation" checked><h2>Pixelation</h2>
+            <input type="range" min="15" max="100" value="35" class="slider" id="pix"><p id="pixOutput"></p>
+        </div>
+        <div class="brickswide">
+            <input type="radio" name="choice" value="brickswide"><h2>Bricks Wide</h2>
+            <input type="range" min="1" max="75" value="50" class="slider" id="bw"><p id="bwOutput"></p>
+        </div>
+        <div class="brickshigh">
+            <input type="radio" name="choice" value="brickshigh"><h2>Bricks High</h2>
+            <input type="range" min="1" max="75" value="50" class="slider" id="bh"><p id="bhOutput"></p>
+        </div>
+        <div class="imageSelect">
+            <select id="img">                
+                <option value="https://v0s.nl/brickify/img/butterfly.JPG">Butterfly</option>
+                <option value="https://v0s.nl/brickify/img/badLuckBrian.jpg">Bad Luck Brian</option>
+                <option value="https://v0s.nl/brickify/img/eifeltoren.jpg">Eifeltower</option>
+                <option value="https://v0s.nl/brickify/img/grumpyCat.jpg">Grumpy Cat</option>
+                <option value="https://v0s.nl/brickify/img/legoBlue.jpg">LEGO Spaceman</option>
+                <option value="https://v0s.nl/brickify/img/spongebobImagination.jpg">Spongebob</option>
+                <option value="https://v0s.nl/brickify/img/hogwartsCrest.png">Hogwarts</option>
+            </select>
+            <div class="button">
+                <button onclick="submit()">Brickify!</button>
+            </div>
+    </div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>

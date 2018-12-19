@@ -1,0 +1,181 @@
+body{
+    height: 95vh;
+    width: 95vw; 
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 100%;
+    margin: 2.5vh 2.5vw;
+    background-color: hsl(249, 30%, 10%);
+}
+
+main {
+    grid-column: 1;
+    grid-row: 1;
+    object-fit: contain;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+canvas {
+    object-fit: contain;
+}
+
+#controls {
+    grid-column: 2;
+    grid-row: 1;
+    height: 100%;
+    width: 100%;
+    background-color: hsl(249, 30%, 10%);
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(auto-fill, minmax(min-content, 1fr));
+    justify-content: center;
+    align-items: center;
+}
+
+.pixelation, .brickswide, .brickshigh {
+    width: 100%; /* Width of the outside container */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    justify-self: center;
+    color: hsla(21, 9%, 92%,0.9);
+    font-family: Poppins, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 3vmin;
+}
+
+.pixelation {
+    grid-row: 1;
+}
+
+.brickswide {
+    grid-row: 2;
+}
+
+.brickshigh {
+    grid-row: 3;
+}
+
+h2 {
+    text-transform: uppercase;
+    margin: 2px;
+    font-size: 2.5vmin;
+}
+
+p {
+    display: inline;
+}
+
+/* The slider itself */
+.slider {
+    padding:0;
+    margin:0;
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 75%; /* Full-width */
+    height: 25px; /* Specified height */
+    background: hsla(21, 9%, 92%,0.3); /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* .button {
+    grid-row: 5;
+    justify-self: center;
+    align-self: center;
+} */
+
+button, a {
+    color:  hsla(21, 9%, 92%,0.9);
+    font-family: 'Space Mono', monospace;
+    font-size: 1em;
+    background-color: hsla(21, 9%, 92%,0.3);
+    width: 100%;
+}
+
+input[type='radio'] { 
+    transform: scale(1.33); 
+}
+
+select, .imageSelect, option {
+    grid-row: 4;
+    justify-self: center;
+    align-self: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 2vmin;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+select {
+    width: 100%;
+    color:  hsla(21, 9%, 92%,0.9);
+    background-color: hsla(21, 9%, 92%,0.3);
+    margin-bottom: 5%;
+}
+
+option {
+    color: hsl(249, 82%, 10%);
+
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        grid-template-columns: 100%;
+        grid-template-rows: 80vh auto;
+        grid-gap: 20px;
+    }
+
+    #controls {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+
+    .pixelation, .brickswide, .brickshigh, h2 {
+        font-size: 12px;
+    }
+
+    select, .imageSelect, option, button {
+        font-size: 10px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-evenly;
+    }
+
+    select {
+        width: 60%;
+    }
+
+    input[type='radio'] { 
+        transform: none; 
+    }
+
+    .slider {
+        width: 40%;
+    }
+    
+    .imageSelect {grid-row: 1; grid-column: 1;}
+
+    .pixelation {grid-row: 2;}
+    
+    .brickswide {grid-row: 3;}
+    
+    .brickshigh {grid-row: 4;}
+}

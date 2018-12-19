@@ -1,0 +1,174 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-family: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    background-color: white;
+    margin-top: 15vh;
+    max-height: 500px; 
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.grid {
+    display: grid;
+    grid-template: 
+        ". time time day . square1" minmax(auto,4.7em)
+        ". . bar day . square2" minmax(auto, 4fr) 
+        ". . bar day . square3" minmax(auto, 4fr)
+        "gr_vert sun bar day . ." 30vh
+        "gr_vert sun bar dbar dbar dbar" auto
+        "gr_vert sun bar quote quote quote" auto
+        ". gr_horz bar quote quote quote" auto
+        ". . bar quote quote quote" auto
+        / auto min-content min-content 2.5em minmax(20px,100px) minmax(20px,100px);
+    grid-gap: 2px;
+    transform: rotate(-45deg);
+}
+
+.grid div {
+    padding: 10px;
+}
+
+div[onclick]:hover {
+    cursor: pointer;
+}
+
+.time {
+    grid-area: time;
+    color: blue;
+    font-size: 5em;
+    font-weight: 700;
+    line-height: 1;
+    justify-self: end;
+    padding: 0px;
+    margin: -10px -10px 0 -10px;
+    align-self: top;
+}
+
+.day {
+    grid-area: day;
+    writing-mode: vertical-rl;
+    color: red;
+    font-size: 2em;
+    padding-top: 1em;
+    justify-self: start;
+    align-self: start;
+    width: 100%;
+    white-space: nowrap; 
+}
+
+.gr_horz {
+    grid-area: gr_horz;
+    color: red;
+    transform: rotate(180deg);
+    text-align: end;
+    font-size: 1.5em;
+    margin-top: -5px;}
+
+.gr_vert {
+    grid-area: gr_vert;
+    writing-mode: vertical-lr;
+    color: red;
+    transform: rotate(180deg);
+    font-size: 1.5em;
+    margin-right: -5px;
+}
+
+.quote {
+    grid-area: quote;
+    color: blue;
+    text-align: justify;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+.bar{
+    grid-area: bar;
+    border-left: black solid 20px;
+    border-right: black dotted 5px;
+    align-self: start;
+    justify-self: end;
+    writing-mode: vertical-lr;
+    height: 100%;
+    margin-left: 20px;
+}
+
+.dubblebar {
+    grid-area: dbar;
+    border-bottom: 5px double black;
+    width: 103%;
+    margin-left: -2em;
+
+}
+
+.sun {
+    grid-area: sun;
+    height: 20vmin;
+    width: 20vmin;
+    background-color: yellow;
+    border-radius: 50%;   
+    justify-self: start;
+    align-self: end;
+}
+
+.square1 {
+    grid-area: square1;
+    height: 3.2em;
+    width: 3.2em;
+    background-color: black;
+    margin-bottom: 5px;
+    justify-self: end;
+}
+.square2 {
+    grid-area: square2;
+    height: 1.92em;
+    width: 1.92em;
+    background-color: black;
+    margin-bottom: 5px;
+    justify-self: end;
+    align-self: center;
+}
+
+.square3 {
+    grid-area: square3;
+    height: 1.152em;
+    width: 1.152em;
+    background-color: black;
+    margin-bottom: 5px;
+    justify-self: end;
+}
+
+@media only screen and (max-width: 650px) {
+    .grid{
+        transform: rotate(0deg)
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    /* .grid{
+        transform: rotate(0deg)
+    } */
+    .time{
+        font-size: 15vw;
+    }
+    .day {
+        font-size: 7vw;
+    }
+    .gr_horz, .gr_vert, .quote {
+        font-size: 4vw;
+    }
+    .square1 {
+        height: 12vw;
+        width: 12vw;
+    }
+    .square2 {
+        height: 8vw;
+        width: 8vw;
+    }
+    .square3 {
+        height: 4vw;
+        width: 4vw;
+    }
+}

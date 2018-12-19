@@ -1,0 +1,8 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: hsl(249, 30%, 10%);
+}
+canvas {
+  display: block;
+}

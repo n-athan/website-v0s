@@ -1,0 +1,68 @@
+/* white hsl(21, 9%, 92%), 
+blue  rgb(21, 9,  92), hsl(249, 82%, 20%), 
+mooi grijs hsl(249, 30%, 20%);*/
+
+
+body {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    background-color: hsl(21, 9%, 92%);
+    width: 90vw;
+    height: auto;
+    margin: auto;
+    padding: 0;
+    font-family: 'Space Mono', monospace;
+    font-weight: 400;
+}
+
+p {
+    display: inline;
+    font-family: monospace;
+    font-size: 2em;
+}
+
+.lint {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-weight: 700;
+    padding: 25px 0;
+    height: 200px;
+}
+
+.lint > p {
+    transform: rotate(70deg);
+    width: 0;
+    height: 0;
+}
+
+.result {
+    margin:auto;
+
+}
+
+@media only screen and (max-width: 750px) {
+    .lint {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        font-weight: 700;
+        width: 50vw;
+        height: 100%;
+        padding: 0;
+    }
+
+    .lint > p {
+        transform: none;
+        height: 50px;
+    }
+
+    .result {
+        position: fixed;
+        right: 10px;
+        top: 40%;
+    }
+}
