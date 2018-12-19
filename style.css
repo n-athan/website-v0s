@@ -48,9 +48,9 @@ button {
     font-family: 'Space Mono', monospace;
     font-size: 1em;
     background-color: hsla(21, 9%, 92%,0.3);
-    position: fixed;
-    top: 5%;
-    right: 0%;
+    position: relative;
+    top: -30%;
+    right: -45%;
 }
 
 .en {
