@@ -40,10 +40,18 @@ function draw() {
 	//text
 	strokeWeight(2);
 	stroke(0, 100, 0);
-	let t = hour() + ':' + minute();
+	let t = checkTime(hour()) + ':' + checkTime(minute());
 	let ts = 30;
 	textSize(ts);
 	textFont('Poppins');
 	text(t, width - ts * 5, height - ts, width, height);
 
+}
+
+// add a zero in front of numbers<10
+function checkTime(i) {
+    if (i<10) {
+        i="0" + i;
+    }
+    return i;
 }
