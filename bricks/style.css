@@ -40,3 +40,7 @@ main {
     display: grid;
     grid-auto-flow: row;
 }
+
+#mouseArea > p {
+    background-color: hsla(21, 9%, 92%,0.3);
+}

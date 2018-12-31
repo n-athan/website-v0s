@@ -51,9 +51,12 @@ let menuCSS = '<link href="https://fonts.googleapis.com/css?family=Space+Mono" r
         z-index: 100;\
         display: flex;\
         align-items: flex-end;\
-    }\
-    \
-    #interface {\
+    }'+
+    '#mouseArea > p {background-color: hsla(21, 9%, 92%,0.3);\
+        font-family: "Space Mono", monospace !important;\
+        font-size: 1rem;\
+        text-indent: 0;}' +
+    '#interface {\
         position: fixed;\
         bottom:0;\
         left:0;\
