@@ -68,7 +68,7 @@ let menuHTML = '\
                 <dd><a href="https://v0s.nl/eyes">Vierkante Oogjes</a></dd>\
             </dt>\
         </dl>\
-        <div style="font-size:0.7rem"><p>license: <a href= "https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA</a></p><br>\
+        <div class="menuBottom" style="font-size:0.7rem; display: inline"><p>license: <a href= "https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA</a></p><br>\
         <p onclick="changeLanguage(\'en\')" id="menuEN">English</p><p>/</p><p onclick="changeLanguage(\'nl\')" id="menuNL">Nederlands</p>\
         </div>\
     </div>\
@@ -88,8 +88,12 @@ let menuCSS = '<link href="https://fonts.googleapis.com/css?family=Space+Mono" r
     }'+
     '#mouseArea > p {background-color: hsla(21, 9%, 92%,0.3);\
         font-family: "Space Mono", monospace !important;\
-        font-size: 1rem;\
+        font-size: 1em;\
         text-indent: 0;}' +
+    '.menuBottom p {\
+        display: inline;\
+        padding:0;\
+        margin: 5px;}' +
     '#interface {\
         position: fixed;\
         bottom:0;\
@@ -101,10 +105,11 @@ let menuCSS = '<link href="https://fonts.googleapis.com/css?family=Space+Mono" r
         display: none;  \
         color:  hsla(21, 9%, 92%,0.9);\
         font-family: "Space Mono", monospace;\
-        font-size: 1rem;\
+        font-size: 1em;\
         background-color: hsla(249, 30%, 20%,0.9);\
     }' + 
     '#interface a {\
+        font-size: 1em;\
         font-weight: bolder;\
         color:  hsla(21, 9%, 92%,0.9) !important;\
         text-decoration: none;\
