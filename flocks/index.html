@@ -4,16 +4,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet"> 
     <script src="../libraries/p5.min.js"></script>
-    <script src="../libraries/p5.dom.min.js"></script>
+    <script src="../libraries/p5.dom.min.js"></script>    
+    <script src="../libraries/menu.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Scenic Flocks</title>
 
   </head>
   <body>
 
-    <div id="mouseArea" onmouseover="showInterface()" onmouseout="hideInterface()">
-      <p id="menu">MENU</p>
-      <div id="interface">
+    <div id="mouseArea2" onmouseover="showInterface2()" onmouseout="hideInterface2()">
+      <p id="menu2">MENU</p>
+      <div id="interface2">
         <input type="range" min="0" max="5" step="0.1" class="slider" value= "1" id="align">
         <input type="range" min="0" max="5" step="0.1" class="slider" value= "1"  id="cohesion">
         <input type="range" min="0" max="5" step="0.1" class="slider" value= "1"  id="separation">

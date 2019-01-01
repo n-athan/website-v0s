@@ -72,6 +72,11 @@ p {
     display: inline;
 }
 
+#mouseArea > p {
+    background-color: hsla(21, 9%, 92%,0.3);
+    color: hsl(21, 9%, 92%);
+}
+
 /* The slider itself */
 .slider {
     padding:0;
