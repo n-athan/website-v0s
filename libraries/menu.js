@@ -13,29 +13,34 @@ function hideInterface() {
 }
 
 let menuHTML = '\
-<div id="mouseArea" onmouseover="showInterface()" onmouseout="hideInterface()">\
+<div id="mouseArea" onmouseover="showInterface()" onmouseout="hideInterface()" tabindex="1">\
         <p id="menu">MENU</p>\
     <div id="interface">\
         <dl>\
-            <dt>Home</dt>\
+            <dt><a href="https://v0s.nl">Home</a></dt>\
             <dt> Bricks\
-                <dd>Brickify</dd>\
-                <dd>Bricks</dd>\
+                <dd><a href="https://v0s.nl/brickify">Brickify</a></dd>\
+                <dd><a href="https://editor.p5js.org/full/Hyv8wvBWN">Bricked faces</a></dd>\
+                <dd><a href="https://v0s.nl/bricks">Bricks</a></dd>\
             </dt>\
             <dt> Clocks\
-                <dd>de klok</dd>\
-                <dd>de tweede klok</dd>\
-                <dd>Binary Clock</dd>\
+                <dd><a href="https://v0s.nl/klok">de klok</a></dd>\
+                <dd><a href="https://v0s.nl/klok2">de klok 2.0</a></dd>\
+                <dd><a href="https://v0s.nl/binaire%20klok">Binary Clock</a></dd>\
             </dt>\
             <dt> Generative Animations\
-                <dd>The Round Table</dd>\
-                <dd>Scenic Flocks</dd>\
+                <dd><a href="https://v0s.nl/timestables">The Round Table</a></dd>\
+                <dd><a href="https://v0s.nl/flocks">Scenic Flocks</a></dd>\
             </dt>\
             <dt> Games\
-                <dd>Inkteger</dd>\
+                <dd><a href="https://v0s.nl/inkteger">Inkteger</a></dd>\
+            </dt>\
+            <dt> Miscellaneous\
+                <dd><a href="https://v0s.nl/kleuren">Naming Colors</a></dd>\
+                <dd><a href="https://v0s.nl/eyes">Vierkante Oogjes</a></dd>\
             </dt>\
         </dl>\
-        <div><p>license</p></div>\
+        <div><p style="font-size:0.7rem">license: <a href= "https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA</a></p></div>\
     </div>\
 </div>';
 
@@ -46,9 +51,8 @@ let menuCSS = '<link href="https://fonts.googleapis.com/css?family=Space+Mono" r
         bottom: 0;\
         left: 0;\
         margin: 10px;\
-        width: 30vw;\
+        width: 10vw;\
         height: 10vh;\
-        z-index: 100;\
         display: flex;\
         align-items: flex-end;\
     }'+
@@ -69,7 +73,11 @@ let menuCSS = '<link href="https://fonts.googleapis.com/css?family=Space+Mono" r
         font-family: "Space Mono", monospace;\
         font-size: 1rem;\
         background-color: hsla(249, 30%, 20%,0.9);\
-    }' + '</style>';
+    }' + 
+    '#interface >> a {\
+        font-weight: bolder;\
+    }' + 
+    '</style>';
 
 //insert menu styling
 let head = document.getElementsByTagName('head')[0];
@@ -78,3 +86,5 @@ head.insertAdjacentHTML('beforeend', menuCSS);
 //insert menu in html
 let h = document.getElementsByTagName('html')[0];
 h.insertAdjacentHTML('beforeend', menuHTML);
+
+//TODO make menu tab accessable!
