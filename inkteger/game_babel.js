@@ -2,8 +2,9 @@
 
 "use strict";
 
-var cols, rows, blue, red, m, paint, guessesLeft, gameOver, go_i, canvas_size, grid, html, hue, w_input, colors_input, labels, blocksRevealed;
+var cols, rows, blue, red, m, paint, guessesLeft, gameOver, go_i, canvas_size, grid, html, hue, w_input, colors_input, lang, labels, blocksRevealed;
 getSize();
+var lang = "nl";
 var w = canvas_size / 10;
 var colors = 4;
 var labels_nl = ["Rood", "Oranje", "Geel", "Lichtgroen", "Groen", "Turkoois", "Cyaan", "Blauw", "Indigo", "Paars", "Magenta","Roze", "Rood"]

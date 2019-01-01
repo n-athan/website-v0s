@@ -97,12 +97,12 @@ function draw() {
 }
 
 //reactive menu
-function showInterface2() {
-	let i = select('#interface2');
+function showInterface() {
+	let i = select('#interface');
 	i.style('top', '0');
 }
 
-function hideInterface2() {
-	let i = select('#interface2');
+function hideInterface() {
+	let i = select('#interface');
 	i.style('top', '-450px' );
 }
