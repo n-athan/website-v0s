@@ -12,6 +12,34 @@ function hideInterface() {
 	i.style.display='none';
 }
 
+function changeLanguage(l) {
+    if (lang !== l) {
+        if (lang == "nl") {lang = "en"} else {lang = "nl"};
+        let enp = document.getElementsByClassName("en");
+        let nlp = document.getElementsByClassName("nl");
+        if (lang == "nl") {
+            document.getElementById("menuEN").style.fontWeight = "normal";
+            document.getElementById("menuNL").style.fontWeight = "bolder";
+            for(var i=0; i<nlp.length; i++) {
+                nlp[i].style.display = 'block';
+            }
+            for(var i=0; i<enp.length; i++) {
+                enp[i].style.display = 'none';
+            }
+        } else if (lang == "en") {
+            document.getElementById("menuNL").style.fontWeight = "normal";
+            document.getElementById("menuEN").style.fontWeight = "bolder";
+            for(var i=0; i<nlp.length; i++) {
+                nlp[i].style.display = 'none';
+            }
+            for(var i=0; i<enp.length; i++) {
+                enp[i].style.display = 'block';
+            }
+        }
+    }
+}
+
+
 let menuHTML = '\
 <div id="mouseArea" onmouseover="showInterface()" onmouseout="hideInterface()" tabindex="1">\
         <p id="menu">MENU</p>\
@@ -40,7 +68,9 @@ let menuHTML = '\
                 <dd><a href="https://v0s.nl/eyes">Vierkante Oogjes</a></dd>\
             </dt>\
         </dl>\
-        <div><p style="font-size:0.7rem">license: <a href= "https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA</a></p></div>\
+        <div style="font-size:0.7rem"><p>license: <a href= "https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA</a></p><br>\
+        <p onclick="changeLanguage(\'en\')" id="menuEN">English</p><p>/</p><p onclick="changeLanguage(\'nl\')" id="menuNL">Nederlands</p>\
+        </div>\
     </div>\
 </div>';
 
@@ -74,8 +104,10 @@ let menuCSS = '<link href="https://fonts.googleapis.com/css?family=Space+Mono" r
         font-size: 1rem;\
         background-color: hsla(249, 30%, 20%,0.9);\
     }' + 
-    '#interface >> a {\
+    '#interface a {\
         font-weight: bolder;\
+        color:  hsla(21, 9%, 92%,0.9) !important;\
+        text-decoration: none;\
     }' + 
     '</style>';
 
@@ -86,5 +118,8 @@ head.insertAdjacentHTML('beforeend', menuCSS);
 //insert menu in html
 let h = document.getElementsByTagName('html')[0];
 h.insertAdjacentHTML('beforeend', menuHTML);
+
+let lang = "nl";
+document.getElementById("menuNL").style.fontWeight = "bolder";
 
 //TODO make menu tab accessable!
