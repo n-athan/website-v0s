@@ -6,8 +6,3 @@ html, body {
 canvas {
   display: block;
 }
-
-p {
-  background-color: hsla(21, 9%, 92%,0.3);
-  color: hsl(21, 9%, 92%);
-}

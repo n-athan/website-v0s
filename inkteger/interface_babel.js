@@ -72,3 +72,27 @@ function refresh() {
   // start new game
   setup();
 }
+
+function changeLanguage() {
+  if (lang == "nl") {lang = "en"} else {lang = "nl"};
+  let button = document.getElementById("lang");
+  let enp = document.getElementsByClassName("en");
+  let nlp = document.getElementsByClassName("nl");
+  if (lang == "nl") {
+      button.innerHTML = "EN";
+      for(var i=0; i<nlp.length; i++) {
+          nlp[i].style.display = 'block';
+      }
+      for(var i=0; i<enp.length; i++) {
+          enp[i].style.display = 'none';
+      }
+  } else if (lang == "en") {
+      button.innerHTML = "NL";
+      for(var i=0; i<nlp.length; i++) {
+          nlp[i].style.display = 'none';
+      }
+      for(var i=0; i<enp.length; i++) {
+          enp[i].style.display = 'block';
+      }
+  }
+}
