@@ -11,8 +11,8 @@ window.addEventListener('resize', () => {
     var grid = document.getElementsByTagName("main")[0];
     grid.innerHTML = '';
     var w = window.innerWidth;
-    var h = window.innerHeight; 
-    fill(w,h);
+    var hg = window.innerHeight; 
+    fill(w,hg);
  });
 
 function fill(width,height) {
@@ -32,5 +32,5 @@ function fill(width,height) {
     };
 };  
 var w = window.innerWidth;
-var h = window.innerHeight; 
-fill(w,h);
+var hg = window.innerHeight; 
+fill(w,hg);
