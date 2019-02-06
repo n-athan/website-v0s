@@ -8,7 +8,7 @@ var MENUOBJECT = function() {
                 <dt><a href="https://v0s.nl">Home</a></dt>\
                 <dt> Bricks\
                     <dd><a href="https://v0s.nl/brickify">Brickify</a></dd>\
-                    <dd><a href="https://editor.p5js.org/full/Hyv8wvBWN">Bricked faces</a></dd>\
+                    <dd><a href="https://editor.p5js.org/n-athan/full/SkYgPv6Z4">Bricked faces</a></dd>\
                     <dd><a href="https://v0s.nl/bricks">Bricks</a></dd>\
                 </dt>\
                 <dt> Clocks\
@@ -19,6 +19,8 @@ var MENUOBJECT = function() {
                 <dt> Generative Animations\
                     <dd><a href="https://v0s.nl/timestables">The Round Table</a></dd>\
                     <dd><a href="https://v0s.nl/flocks">Scenic Flocks</a></dd>\
+                    <dd><a href="https://v0s.nl/maze">Experiments with Mazes</a></dd>\
+                    <dd><a href="https://v0s.nl/blackwhite">Experiments in Black and White</a></dd>\
                 </dt>\
                 <dt> Games\
                     <dd><a href="https://v0s.nl/inkteger">Inkteger</a></dd>\
@@ -73,6 +75,9 @@ var MENUOBJECT = function() {
             font-weight: bolder;\
             color:  hsla(21, 9%, 92%,0.9) !important;\
             text-decoration: none;\
+        }' + 
+        '#interface a:hover{\
+            cursor: pointer;\
         }' + 
         '.menuBottom p {\
             color:  hsla(21, 9%, 92%,0.9) !important;\
