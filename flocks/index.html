@@ -5,14 +5,13 @@
     <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet"> 
     <script src="../libraries/p5.min.js"></script>
     <script src="../libraries/p5.dom.min.js"></script>    
-    <script src="../libraries/menu.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Scenic Flocks</title>
 
   </head>
   <body>
 
-    <div id="mouseArea2" onmouseover="showInterface2()" onmouseout="hideInterface2()">
+    <div id="mouseArea2" onmouseover="showInterface()" onmouseout="hideInterface()">
       <p id="menu2">MENU</p>
       <div id="interface2">
         <input type="range" min="0" max="5" step="0.1" class="slider" value= "1" id="align">
@@ -32,7 +31,7 @@
     <script src="quadtree.js"></script>
     <script src="boid.js"></script>
     <script src="flocks.js"></script>
-    <script src="sketch.js"></script>
-  
+    <script src="sketch.js"></script>    
+    <script src="../libraries/menu.js"></script>
 
 </body></html>
