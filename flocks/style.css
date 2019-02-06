@@ -43,22 +43,26 @@ p {
   font-size: 1em;
 }
 
-#menu {
+#settings {
   width: 100vw;
   height: 20vh;
 }
 
-#mouseArea {
+#settingsArea {
   position: fixed;
   top: 0;
 }
 
-#interface {
+#settingsInterface {
   position: fixed;
   transition: 1s ease all;
   margin-bottom: 150px;
   display: flex;
   flex-flow: row wrap;
+}
+
+.en {
+  display: none;
 }
 
 input[type=number]{

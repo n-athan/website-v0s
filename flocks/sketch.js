@@ -98,11 +98,11 @@ function draw() {
 
 //reactive menu
 function showInterface() {
-	let i = select('#interface');
-	i.style('top', '0');
+	let i = select('#settingsInterface');
+	i.style('top', '2em');
 }
 
 function hideInterface() {
-	let i = select('#interface');
+	let i = select('#settingsInterface');
 	i.style('top', '-450px' );
 }
