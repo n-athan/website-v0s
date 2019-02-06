@@ -63,7 +63,7 @@ function setup() {
   document.getElementsByTagName("canvas")[0].classList.remove("gamewon");
   paint = undefined;
   go_i = 0;
-  if (lang == "en") {labels = labels_en} else {labels=labels_nl};
+  if (MENUOBJECT.lang == "en") {labels = labels_en} else {labels=labels_nl};
 
   //Setting the colors. Using a dynamic naming, to account for user set number of colors.
   for (var i = 0; i < colors; i++) {
