@@ -1,3 +1,5 @@
+(function() {
+
 function showInterface() {
     // let m = document.getElementById('mouseArea');
     // m.style.color='transparent';
@@ -88,7 +90,7 @@ let menuCSS = '<link href="https://fonts.googleapis.com/css?family=Space+Mono" r
     }'+
     '#mouseArea > p {background-color: hsla(21, 9%, 92%,0.3);\
         font-family: "Space Mono", monospace !important;\
-        font-size: 1em;\
+        font-size: 1rem;\
         text-indent: 0;}' +
     '.menuBottom p {\
         display: inline;\
@@ -109,7 +111,7 @@ let menuCSS = '<link href="https://fonts.googleapis.com/css?family=Space+Mono" r
         background-color: hsla(249, 30%, 20%,0.9);\
     }' + 
     '#interface a {\
-        font-size: 1em;\
+        font-size: 1rem;\
         font-weight: bolder;\
         color:  hsla(21, 9%, 92%,0.9) !important;\
         text-decoration: none;\
@@ -121,10 +123,12 @@ let head = document.getElementsByTagName('head')[0];
 head.insertAdjacentHTML('beforeend', menuCSS);
 
 //insert menu in html
-let h = document.getElementsByTagName('html')[0];
-h.insertAdjacentHTML('beforeend', menuHTML);
+let body = document.getElementsByTagName('body')[0];
+body.insertAdjacentHTML('beforeend', menuHTML);
 
 let lang = "nl";
 document.getElementById("menuNL").style.fontWeight = "bolder";
+
+}());
 
 //TODO make menu tab accessable!
