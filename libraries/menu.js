@@ -93,14 +93,14 @@ var MENUOBJECT = function() {
         // m.style.color='transparent';
         let i = document.getElementById('interface');
         i.style.display='block';
-    },
+        },
 
         hideInterface: function() {
         // let m = document.getElementById('mouseArea');
         // m.style.color='initial';
         let i = document.getElementById('interface');
         i.style.display='none';
-    },
+        },
         changeLanguage: function(l) {
             if (lang !== l) {
                 if (lang == "nl") {lang = "en"} else {lang = "nl"};
@@ -126,7 +126,8 @@ var MENUOBJECT = function() {
                     }
                 }
             }
-        }
+        },
+        lang
     }
 }();
 
