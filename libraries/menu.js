@@ -92,6 +92,12 @@ var MENUOBJECT = function() {
         +
         '#MENUlicense {\
             font-size: 0.8rem !important;}'+ 
+        '@media only screen and (max-height: 900px){\
+            #interface {\
+                font-size: 2vh;}\
+            #interface a{\
+                font-size: 2vh !important;}\
+        }'+
         '</style>';
 
     //insert menu styling
