@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Allow: /sitemap.xml
+Sitemap: https://v0s.nl/sitemap.xml
