@@ -62,6 +62,7 @@ h2 {
 
     .info p {
         margin: 2em auto;
-        width: 80vw;
+        width: 80vw;        
+        font-size: x-small; 
     }
 }
