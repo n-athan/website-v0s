@@ -28,6 +28,7 @@ var MENUOBJECT = function() {
                 <dt> Miscellaneous\
                     <dd><a href="https://v0s.nl/kleuren">Naming Colors</a></dd>\
                     <dd><a href="https://v0s.nl/eyes">Vierkante Oogjes</a></dd>\
+                    <dd><a href="https://v0s.nl/contact">Contact</a></dd>\
                 </dt>\
             </dl>\
             <div class="menuBottom" style="font-size:0.7rem; display: inline"><p>license: <a id="MENUlicense" href= "https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA</a></p><br>\
@@ -68,6 +69,7 @@ var MENUOBJECT = function() {
             font-family: "Space Mono", monospace;\
             font-size: 1em;\
             background-color: hsla(249, 30%, 20%,0.9);\
+            // overflow: scroll;\
         }' + 
         '#interface a {\
             font-family: "Space Mono", monospace;\
