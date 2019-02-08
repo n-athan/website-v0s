@@ -8,7 +8,7 @@ var MENUOBJECT = function() {
                 <dt><a href="https://v0s.nl">Home</a></dt>\
                 <dt> Bricks\
                     <dd><a href="https://v0s.nl/brickify">Brickify</a></dd>\
-                    <dd><a href="https://editor.p5js.org/n-athan/full/SkYgPv6Z4">Bricked faces</a></dd>\
+                    <dd><a href="https://editor.p5js.org/full/SkYgPv6Z4">Bricked faces</a></dd>\
                     <dd><a href="https://v0s.nl/bricks">Bricks</a></dd>\
                 </dt>\
                 <dt> Clocks\
