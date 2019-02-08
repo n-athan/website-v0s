@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: hsl(249, 30%, 10%);
+    color: hsl(21, 9%, 92%);
+    font-family: 'Space Mono', monospace;
+  }
+
+.header p {
+    margin: 2em 20vw;
+    width: 60vw;
+}
+
+.content{
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.post {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    border: solid hsl(21, 9%, 92%) 2px;
+    margin: 5px;
+    padding: 5px;
+    background: hsla(21, 9%, 92%,0.15);
+}
+
+.post h3 {
+    margin: 0;
+}
+
+video, img {
+    width: 400px;
+    height: 400px;
+}
+
+.en {
+    display: none;
+}
+
+p {
+    color: hsl(21, 9%, 92%);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85em;
+    text-indent: 2%;
+}
+
+a { 
+    text-decoration: none;
+    color: inherit;
+    font-weight: bolder;
+}
+
+h3 {
+    font-family: Poppins, Helvetica, Arial, sans-serif;
+    font-weight: 300;    
+    color: hsla(21, 9%, 92%);
+}
+
+h2 {
+    font-family: Poppins, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    background-color: hsla(21, 9%, 92%,0.4);
+    color: hsl(249, 82%, 10%);
+    font-size: 2.5em;
+    padding: 0 10px 10px 10px;
+    transition: 2s ease all;
+    margin: 0;
+    text-align: center;
+}
+
+/* Media statements for small screens */
+@media only screen and (max-width: 520px){
+    video, img {
+        width: 80vw;
+        height: 80vw;
+    }
+    
+    .header p {
+        margin: 2em auto;
+        width: 80vw;          
+        font-size: x-small;
+    }
+}

@@ -8,7 +8,7 @@ var MENUOBJECT = function() {
                 <dt><a href="https://v0s.nl">Home</a></dt>\
                 <dt> Bricks\
                     <dd><a href="https://v0s.nl/brickify">Brickify</a></dd>\
-                    <dd><a href="https://editor.p5js.org/full/Hyv8wvBWN">Bricked faces</a></dd>\
+                    <dd><a href="https://editor.p5js.org/full/SkYgPv6Z4">Bricked faces</a></dd>\
                     <dd><a href="https://v0s.nl/bricks">Bricks</a></dd>\
                 </dt>\
                 <dt> Clocks\
@@ -19,6 +19,8 @@ var MENUOBJECT = function() {
                 <dt> Generative Animations\
                     <dd><a href="https://v0s.nl/timestables">The Round Table</a></dd>\
                     <dd><a href="https://v0s.nl/flocks">Scenic Flocks</a></dd>\
+                    <dd><a href="https://v0s.nl/maze">Experiments with Mazes</a></dd>\
+                    <dd><a href="https://v0s.nl/blackwhite">Experiments in Black and White</a></dd>\
                 </dt>\
                 <dt> Games\
                     <dd><a href="https://v0s.nl/inkteger">Inkteger</a></dd>\
@@ -26,6 +28,7 @@ var MENUOBJECT = function() {
                 <dt> Miscellaneous\
                     <dd><a href="https://v0s.nl/kleuren">Naming Colors</a></dd>\
                     <dd><a href="https://v0s.nl/eyes">Vierkante Oogjes</a></dd>\
+                    <dd><a href="https://v0s.nl/contact">Contact</a></dd>\
                 </dt>\
             </dl>\
             <div class="menuBottom" style="font-size:0.7rem; display: inline"><p>license: <a id="MENUlicense" href= "https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA</a></p><br>\
@@ -66,6 +69,7 @@ var MENUOBJECT = function() {
             font-family: "Space Mono", monospace;\
             font-size: 1em;\
             background-color: hsla(249, 30%, 20%,0.9);\
+            // overflow: scroll;\
         }' + 
         '#interface a {\
             font-family: "Space Mono", monospace;\
@@ -73,6 +77,9 @@ var MENUOBJECT = function() {
             font-weight: bolder;\
             color:  hsla(21, 9%, 92%,0.9) !important;\
             text-decoration: none;\
+        }' + 
+        '#interface a:hover{\
+            cursor: pointer;\
         }' + 
         '.menuBottom p {\
             color:  hsla(21, 9%, 92%,0.9) !important;\
@@ -85,6 +92,12 @@ var MENUOBJECT = function() {
         +
         '#MENUlicense {\
             font-size: 0.8rem !important;}'+ 
+        '@media only screen and (max-height: 900px){\
+            #interface {\
+                font-size: 2vh;}\
+            #interface a{\
+                font-size: 2vh !important;}\
+        }'+
         '</style>';
 
     //insert menu styling

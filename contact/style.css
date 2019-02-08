@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: hsl(249, 30%, 10%);
+    color: hsl(21, 9%, 92%);
+    font-family: 'Space Mono', monospace;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+.info p {
+    margin: 2em;
+    width: 80vw;
+    max-width: 600px;
+}
+
+.links {
+    align-self: center;
+    white-space: nowrap;
+}
+
+.en {
+    display: none;
+}
+
+p {
+    color: hsl(21, 9%, 92%);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85em;
+    text-indent: 2%;
+}
+
+a { 
+    text-decoration: none;
+    color: inherit;
+    font-weight: bolder;
+}
+
+h3 {
+    font-family: Poppins, Helvetica, Arial, sans-serif;
+    font-weight: 300;    
+    color: hsla(21, 9%, 92%);
+}
+
+h2 {
+    width: 97vw;
+    font-family: Poppins, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    background-color: hsla(21, 9%, 92%,0.4);
+    color: hsl(249, 82%, 10%);
+    font-size: 2.5em;
+    padding: 0 10px 10px 10px;
+    transition: 2s ease all;
+    margin: 0;
+    text-align: center;
+}
+
+/* Media statements for small screens */
+@media only screen and (max-width: 600px){
+
+    .info p {
+        margin: 2em auto;
+        width: 80vw;        
+        font-size: x-small; 
+    }
+}
