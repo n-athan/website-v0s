@@ -57,12 +57,13 @@ function newSpinner() {
   let clr = color(hue,sat,brg,0.5);
   let size = select('#size').value();
   let arms = select('#arms').value();
-
-  spinner = new Spinner(clr,arms,size);
-  spinners.push(spinner);
-  
-  //smallest spinner on top
-  spinners.sort((a,b) => b.rCenter - a.rCenter);
+  if (!(size <= 0 || arms <= 1)){
+    spinner = new Spinner(clr,arms,size);
+    spinners.push(spinner);
+    
+    //smallest spinner on top
+    spinners.sort((a,b) => b.rCenter - a.rCenter);
+  }
 }
 
 //remove spinner on doubleclick- not compatible on most browsers yet.
@@ -87,4 +88,8 @@ function showInterface() {
 function hideInterface() {
 	let i = select('#settingsInterface');
 	i.style('top', '-450px' );
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
