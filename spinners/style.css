@@ -36,8 +36,7 @@ button, input {
   margin: 10px;
 }
 
-
-p {
+p,li,h2 {
   color: hsl(21, 9%, 92%);
   font-family: 'Space Mono', monospace;
   font-size: 1em;
@@ -65,6 +64,19 @@ p {
   width: 100px;
   margin: 0 10px;
 }
+
+#instructions {
+  position: fixed;
+  bottom:0;
+  right:0;
+  border: solid 2px hsla(21, 9%, 92%,0.3);
+  width: 20vw;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}​
 
 .inputBox {
   line-height: 1em;
