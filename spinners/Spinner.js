@@ -32,8 +32,13 @@ class Spinner {
     let shape = createGraphics(this.size*4,this.size*4);
     shape.colorMode(HSL,360,100,100,1);	
     shape.background(0,0,0,0); //transparant
-    shape.noStroke();
+    // shape.noStroke();
+    let c = this.color;
+    c.alpha = 1;
+    shape.stroke(c);
+    shape.strokeWeight(5);
     shape.fill(this.color);
+    
     shape.beginShape();
     let counter = 0;
     //start of curve (first vertex is startpoint)
@@ -55,11 +60,12 @@ class Spinner {
       }
       counter++;
     }
-    //end of curve
+    //end of curve is the same as the start of the curve
     shape.curveVertex(
       shape.width/2+cos(360)*this.size+cos(90+360)*this.radius,
       shape.height/2+sin(360)*this.size+sin(90+360)*this.radius);
     shape.endShape(CLOSE);
+
     //center disk.
     shape.fill(0,0,0);
     shape.ellipse(shape.width/2,shape.height/2,this.rCenter,this.rCenter);

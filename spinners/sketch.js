@@ -54,7 +54,7 @@ function newSpinner() {
   let hue = sliders[0].value();
 	let sat = sliders[1].value();
 	let brg = sliders[2].value();
-  let clr = color(hue,sat,brg);
+  let clr = color(hue,sat,brg,0.5);
   let size = select('#size').value();
   let arms = select('#arms').value();
 
