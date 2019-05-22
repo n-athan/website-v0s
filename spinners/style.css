@@ -71,7 +71,9 @@ p,li,h2 {
   right:0;
   border: solid 2px hsla(21, 9%, 92%,0.3);
   width: 20vw;
+  max-height: 30vh;
   padding-left: 5px;
+  overflow-y: auto;
 }
 
 ul {
