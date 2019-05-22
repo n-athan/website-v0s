@@ -29,7 +29,7 @@ class Spinner {
   
   createShape() { //creates the shape of the spinner and saves it as an image object.
     let shape = createGraphics(this.size*4,this.size*4);
-    shape.colorMode(HSB,360,100,100,1);	
+    shape.colorMode(HSL,360,100,100,1);	
     shape.background(0,0,0,0); //transparant
     shape.fill(this.color);
     shape.beginShape();

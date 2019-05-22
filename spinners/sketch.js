@@ -4,7 +4,7 @@ let block = document.getElementById("colorBlock");
 
 function setup() {
   createCanvas(innerWidth,innerHeight);  
-  colorMode(HSB,360,100,100,1);	
+  colorMode(HSL,360,100,100,1);	
   angleMode(DEGREES);
   //interface setup
   sliders = selectAll('.slider');
@@ -19,7 +19,7 @@ function setup() {
 
 function draw() {  
   //dark blue background with slight blur for movement.
-  background(249, 30, 15, 0.7);
+  background(249, 30, 10, 0.7);
 
   // drawing spinners
   for (let i = 0; i < spinners.length; i++){
@@ -56,7 +56,7 @@ function mouseReleased() {
 function newSpinner() {
   let hue = sliders[0].value();
 	let sat = sliders[1].value();
-	let brg = sliders[2].value()*2;
+	let brg = sliders[2].value();
   let clr = color(hue,sat,brg);
   let size = select('#size').value();
   let arms = select('#arms').value();
