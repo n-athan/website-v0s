@@ -1,0 +1,44 @@
+<!DOCTYPE html><html><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet"> 
+  <script src="../libraries/p5.min.js"></script>
+  <script src="../libraries/p5.dom.min.js"></script>    
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Fidget Spinners</title>
+
+</head>
+  <body>
+      <div id="settingsArea" onmouseover="showInterface()" onmouseout="hideInterface()">
+          <p class="en" id="settings">ADD SPINNER</p><p class="nl" id="settings">SPINNER TOEVOEGEN</p>
+          <div id="settingsInterface">
+            <div class="inputBox">
+              <input type="range" min="0" max="360" step="1" class="slider" value= "24" id="hue">
+              <p class="en">HUE</p><p class="nl">KLEUR</p>
+            </div>
+            <div class="inputBox">
+              <input type="range" min="0" max="100" step="1" class="slider" value= "70"  id="sat">
+              <p class="en">SATURATION</p><p class="nl">VERZADIGING</p>
+            </div>
+            <div class="inputBox">
+              <input type="range" min="0" max="100" step="1" class="slider" value= "90"  id="brg">   
+              <p class="en">BRIGHTNESS</p><p class="nl">WAARDE</p>
+            </div>     
+            <div id="colorBlock" width="100px" height="100px"></div>
+            <div class="inputBox">    
+              <input type="number" step="1" name="size" id="size" placeholder="size" value="100">
+              <p class="en">SIZE</p><p class="nl">GROOTTE</p>
+            </div>
+            <div class="inputBox">          
+              <input type="number" step="1" name="arms" id="arms" placeholder="arms" value="3">
+              <p class="en"># ARMS</p><p class="nl"># ARMEN</p>
+            </div>
+            <button onclick="newSpinner()"> <p class="en">CREATE</p> <p class="nl">MAAK</p></button>
+          </div>
+        </div>
+
+    <script src="../libraries/menu.js"></script>    
+    <script src="Spinner.js"></script>
+    <script src="sketch.js"></script>
+</body></html>

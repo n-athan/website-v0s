@@ -1,0 +1,107 @@
+/* white hsl(21, 9%, 92%), 
+blue  rgb(21, 9,  92), hsl(249, 82%, 20%), 
+mooi grijs hsl(249, 30%, 20%);*/
+
+root {
+  transition: 3s ease all;
+}
+
+body {    
+  font-size: 12px;
+  background-color: hsl(249, 30%, 10%);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+canvas {
+  object-fit: cover;
+  width: 100vw !important;
+  height: 100vh !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -100;
+  margin: 0;
+  padding: 0;
+}
+
+button, input {
+  color:  hsla(21, 9%, 92%,0.9);
+  font-family: 'Space Mono', monospace;
+  font-size: 1em;
+  background-color: hsla(21, 9%, 92%,0.3);
+  border: none;
+  margin: 10px;
+}
+
+
+p {
+  color: hsl(21, 9%, 92%);
+  font-family: 'Space Mono', monospace;
+  font-size: 1em;
+}
+
+#settings {
+  width: 100vw;
+  height: 20vh;
+}
+
+#settingsArea {
+  position: fixed;
+  top: 0;
+}
+
+#settingsInterface {
+  position: fixed;
+  transition: 1s ease all;
+  margin-bottom: 150px;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#colorBlock {
+  width: 100px;
+  margin: 0 10px;
+}
+
+.inputBox {
+  line-height: 1em;
+  text-align: center;
+}
+
+.en {
+  display: none;
+}
+
+input[type=number]{
+  -moz-appearance: textfield;
+  appearance: textfield;
+  width: 5em;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* The slider itself */
+.slider {
+  padding:0;
+  margin:15px;
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  
+  background: hsla(21, 9%, 92%,0.3); /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
