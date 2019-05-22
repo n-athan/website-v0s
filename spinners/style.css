@@ -81,7 +81,7 @@ ul {
   padding-left: 0;
 }​
 
-.inputBox {
+.inputBox, .inputBox > p {
   line-height: 1em;
   text-align: center;
 }
