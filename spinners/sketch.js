@@ -12,9 +12,6 @@ function setup() {
 
   // create first spinner
     newSpinner();
-
-  //smallest spinner on top
-  spinners.sort((a,b) => b.size - a.size);
 }
 
 function draw() {  
@@ -63,6 +60,9 @@ function newSpinner() {
 
   spinner = new Spinner(clr,arms,size);
   spinners.push(spinner);
+  
+  //smallest spinner on top
+  spinners.sort((a,b) => b.rCenter - a.rCenter);
 }
 
 //remove spinner on doubleclick- not compatible on most browsers yet.
@@ -71,7 +71,7 @@ function doubleClicked() {
   for (let i = 0; i < spinners.length; i++){
     let sp = spinners[i];
     let d = dist(sp.x,sp.y,mouseX,mouseY);
-    if (d < (sp.size-sp.radius)/2) {
+    if (d < (sp.rCenter)/2) {
       spinners.splice(i,1);
     }
   } 

@@ -12,6 +12,7 @@ class Spinner {
     this.mirror_angle = 360/this.arms/2;
     this.size = size;
     this.radius = (PI*this.size)/(this.arms*2);
+    this.rCenter = this.size-this.radius;
     this.moving = false;
     this.shape = this.createShape();
 	}  
@@ -31,6 +32,7 @@ class Spinner {
     let shape = createGraphics(this.size*4,this.size*4);
     shape.colorMode(HSL,360,100,100,1);	
     shape.background(0,0,0,0); //transparant
+    shape.noStroke();
     shape.fill(this.color);
     shape.beginShape();
     let counter = 0;
@@ -60,8 +62,7 @@ class Spinner {
     shape.endShape(CLOSE);
     //center disk.
     shape.fill(0,0,0);
-    let rCenter = (this.size-this.radius);
-    shape.ellipse(shape.width/2,shape.height/2,rCenter,rCenter);
+    shape.ellipse(shape.width/2,shape.height/2,this.rCenter,this.rCenter);
     
     return shape;
   }
@@ -76,14 +77,14 @@ class Spinner {
       
   move(x,y) {
     let d = dist(this.x,this.y,x,y);
-    if (d < (this.size-this.radius)/2) {
+    if (d < this.rCenter/2) {
       this.moving = true;
     }
   }
   
   start(x,y) {
     let d = dist(this.x,this.y,x,y);
-    if (d < (this.size-this.radius)/2) {
+    if (d < this.rCenter/2) {
       this.speed = this.max;
     }
   }
