@@ -24,6 +24,7 @@ var MENUOBJECT = function() {
                 </dt>\
                 <dt> Games\
                     <dd><a href="https://v0s.nl/inkteger">Inkteger</a></dd>\
+                    <dd><a href="https://v0s.nl/spinners">Fidget Spinners</a></dd>\
                 </dt>\
                 <dt> Miscellaneous\
                     <dd><a href="https://v0s.nl/kleuren">Naming Colors</a></dd>\
