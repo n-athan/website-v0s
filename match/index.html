@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style_autoprefix.css">
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet"> 
+
+    <script src="../libraries/p5.080.min.js"></script>
+    <!-- <script src="../libraries/p5.dom.min.js"></script>     -->
+    <title>Match</title>
+</head>
+<body>
+    <div id="controls">
+        <div class="button" id="paintButtons">
+            <!-- Example Buttons, the actual buttons are calculated in game.js -->
+            <!-- <button onclick="paintColor(180)" aria-label="blue-paint-color" id="180" name="paint">Blue</button> -->
+            <!-- <button onclick="freeColor()" aria-label="no-paint-color" id="free" name="paint">Free 3/3</button> -->
+        </div>
+        <div class="settings">
+            <p class="en">#columns:</p> <p class="nl">#kolommen:</p> <input type="number" name="squares" id="squares" value="10"> 
+        </div>
+        <div class="settings">
+            <button onclick="refresh()">Start!</button>
+        </div>
+        <div id="rules">
+            <h2 class="en">Rules</h2>
+            <ul class="en">
+                <li> Swap 2 squares to make a match.  </li> 
+                <li> The squares disappear from the field if there is a match.  </li> 
+                <li> A match is for <b>red, blue, yellow or black</b> a row of at least 3 squares of the same color.  </li> 
+                <li> For <b>white</b>, a match is a rectangle of at least 2 by 2.  </li> 
+                <li> You can only swap squares if it results in a match. </li>
+            </ul>
+            <h2 class="nl">Uitleg</h2>
+            <ul class="nl">
+                <li>Verwissel 2 vakjes om een match te maken.</li>
+                <li>De vakjes verdwijnen van het veld als er een match is.</li>
+                <li>Een match is voor <b>rood, blauw, geel of zwart</b> een rij van minimaal 3 vakjes van dezelfde kleur.</li>
+                <li>Een match is voor <b>wit</b> een rechthoek van minimaal 2 bij 2. </li>
+                <li>Je kunt vakjes alleen wisselen als het resulteert in een match.</li>
+            </ul>
+        </div>
+
+    </div>
+    
+    <script src="../libraries/menu.js"></script>
+    <script src="interface.js"></script>
+    <script src="game.js"></script>        
+    <script src="blok.js"></script>
+    
+    <footer>
+        <div class="license">
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons-Licentie" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons licentie</a>.
+        </div>
+    </footer>
+</body>
+</html>
