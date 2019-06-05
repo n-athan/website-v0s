@@ -43,7 +43,7 @@ function randomColor() {
 }
 
 function scan(justSwapped,selected) {
-   
+  multiplier ++;
   let sel = selected;
   stopFade();
   let rd = []; 
@@ -82,7 +82,7 @@ function scan(justSwapped,selected) {
     removeBlocks(delArr);
   } else if (justSwapped) { //no match, illigal swap.
     swap(sel,true); 
-  }
+  } 
 }
 
 function orderGrid(colorArr) {
@@ -116,7 +116,7 @@ function getLines(arr,diff) {
           temp.push(m[n]);
         } else if (temp.length >= minLine-1) {
           temp.push(m[n]);
-          score += temp.length;
+          score += temp.length*multiplier;
           delArr = delArr.concat(temp); 
           temp = [];
         } else if (temp.length < minLine) {        
@@ -139,7 +139,7 @@ function getRects(horz) {
            && m1.indexOf(m[n]+cols+1)>=0) { //right, under, under/right
           temp.push(m[n],m[n]+1,m[n]+cols,m[n]+cols+1);
           delArr = delArr.concat(temp); 
-          score += temp.length;
+          score += temp.length*multiplier;
           temp = []; 
         }
       }

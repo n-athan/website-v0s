@@ -52,7 +52,7 @@ canvas {
         align-items: center;
 }
 
-button, h2, .settings, input {
+button, h2, .settings, input, p {
     color:  hsla(21, 9%, 92%,0.9);
     font-size: 1em;
     background-color: hsla(21, 9%, 92%,0.3);
@@ -60,10 +60,19 @@ button, h2, .settings, input {
     margin: 3px;
 }
 
-li {
+li, label {
     color:  hsla(21, 9%, 92%,0.9);
     font-size: 1em;
     max-width: 100%;
+}
+
+label {
+    width: unset;
+    display: block;
+}
+
+p {
+    text-align: center;
 }
 
 .settings, #paintColors {
@@ -79,6 +88,10 @@ li {
 input {
     width: 50px;
 }
+
+/* input[type=radio] {
+    width: 10px;
+} */
 
 input[type=number]{
     -moz-appearance: textfield;

@@ -1,7 +1,7 @@
 let grid = [];
 let selected = [];
 let delArr = [];
-let scale,cols,rows,minLine,minRect,looping,alph,score,hoverIndex;
+let scale,cols,rows,minLine,minRect,looping,alph,score,multiplier,hoverIndex,movesLeft,gameMode;
 
 function getSize() {
   let canvas_size;
@@ -28,6 +28,11 @@ function setup() {
   createCanvas(canvas_size, canvas_size);
   colorMode(HSL, 360, 100, 100);
   cols = floor(select('#cols').value());
+  if ((cols < 3 || cols > 40)) {
+    alert("Number of colums must be between 3 and 40. Number set to 15.");
+    cols = 15;
+    select('#cols').value(15);
+  }
   rows = cols;
   scale = width/cols;
   minLine = 3;
@@ -35,17 +40,27 @@ function setup() {
   looping = false;
   alph = 1;
   score = 0;
+  multiplier = 0;
   hoverIndex = 0;
+  movesLeft = 20;
+ 
   for (let i = 0; i < rows * cols; i++) {
     blok = new Blok();
-    grid.push(blok);
+    grid.push(blok);     
   }
+
+  //gameMode
+  gameMode = document.querySelector('input[name="gameMode"]:checked').value;
+
   scan();
 }
 
 function draw() {
   background(0,0,50);
-
+  select('#scoreP').html('Score: ' + score);
+  if (gameMode == 'competative') {
+  select('#movesLeftP').html('Moves: ' + movesLeft);
+  }
   //fade out deleted blocks
   for (let d = 0; d < delArr.length; d++) {
     grid[delArr[d]].color[0].setAlpha(alph);
@@ -68,6 +83,10 @@ function draw() {
       grid[hoverIndex].hover = false;
       hoverIndex = gridIndex;
     }
+  }
+
+  if (movesLeft == 0) {
+    gameDone();
   }
 
   //only draw after change on field, or during removal.
@@ -112,9 +131,10 @@ function mouseAction() {
 }
 
 function swap(array,unswap) {
-   
+  multiplier = 0;    
+  movesLeft --;
   array.sort((a, b) => a - b);
-  if ((array[0]+1 == array[1]) || (array[0]+cols == array[1])) {
+  if ((array[0]+1 == array[1]) || (array[0]+cols == array[1])) {   
     let a = grid[array[0]];
     let b = grid[array[1]];
     grid[array[0]] = b;
@@ -122,6 +142,8 @@ function swap(array,unswap) {
   }
   if (!unswap) {
     scan(true,selected);
+  } else {    
+    movesLeft += 2;
   }
   clearSelect();
 }
@@ -144,11 +166,19 @@ function clearSelect() {
   }
 }
 
+function endGame() {
+  //Compare score with highscore. 
+  //Write high score.
+}
+
 function refresh() {
   grid = [];
   selected = [];
   delArr = [];
+  select('#movesLeftP').html('');
+  select('#scoreP').html('Score: 0');
   setup();
+
 }
 
 function windowResized() {
