@@ -26,8 +26,8 @@ canvas {
     height: 100%;
     width: 100%;
     margin: 0;        
-    -webkit-transition: 2s linear;
-    transition: 2s linear;
+    -webkit-transition: 0.5s linear;
+    transition: 0.5s linear;
     border: 0px;
 }
 

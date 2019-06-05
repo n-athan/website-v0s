@@ -1,19 +1,10 @@
 let grid = [];
 let selected = [];
 let delArr = [];
-let scale;
-let cols = 15;
-let rows;
-let minLine = 3;
-let minRect = 2;
-let looping = false;
-let alph = 1;
-let score = 0;
-let canvas_size;
-let hoverIndex = 0;
-
+let scale,cols,rows,minLine,minRect,looping,alph,score,hoverIndex;
 
 function getSize() {
+  let canvas_size;
   if (window.innerWidth < 450) {
       canvas_size = 400;
   } else if (window.innerWidth < 900) {
@@ -29,14 +20,22 @@ function getSize() {
            
       } else {canvas_size = Math.floor(w_col)}
   }
+  return canvas_size;
 }
 
 function setup() {
-  getSize();
-  createCanvas(canvas_size+1, canvas_size+1);
+  let canvas_size = getSize();
+  createCanvas(canvas_size, canvas_size);
   colorMode(HSL, 360, 100, 100);
+  cols = floor(select('#cols').value());
   rows = cols;
   scale = width/cols;
+  minLine = 3;
+  minRect = 2;
+  looping = false;
+  alph = 1;
+  score = 0;
+  hoverIndex = 0;
   for (let i = 0; i < rows * cols; i++) {
     blok = new Blok();
     grid.push(blok);
@@ -61,7 +60,7 @@ function draw() {
   }
 
   //show selection 
-  if (mouseIsPressed) {
+  if (mouseIsPressed && grid.length > 0) {
     //mouse coordinaten to index
     let gridIndex = floor((mouseX / scale) % cols) + (floor(mouseY / scale) * cols);
     if (gridIndex != hoverIndex) {
@@ -93,21 +92,23 @@ function mousePressed() {
 }
 
 function mouseAction() {
-  if (mouseX > 0 && mouseX < width &&
-    mouseY > 0 && mouseY < height) {
-    //mouse coordinaten to index
-    let gridIndex = floor((mouseX / scale) % cols) + (floor(mouseY / scale) * cols);
-    grid[gridIndex].hover = false;
-    //select blok
-    toggleSelect(gridIndex);
-    //if 2 blocks selected, swap them
-    if (selected.length == 2) {
-      swap(selected);
+  if (delArr.length == 0) { //only allow mouse actions when nothing is happening on the board. 
+    if (mouseX > 0 && mouseX < width &&
+      mouseY > 0 && mouseY < height) {
+      //mouse coordinaten to index
+      let gridIndex = floor((mouseX / scale) % cols) + (floor(mouseY / scale) * cols);
+      grid[gridIndex].hover = false;
+      //select blok
+      toggleSelect(gridIndex);
+      //if 2 blocks selected, swap them
+      if (selected.length == 2) {
+        swap(selected);
+      }
+    } else {
+      clearSelect();
     }
-  } else {
-    clearSelect();
+    draw();
   }
-  draw();
 }
 
 function swap(array,unswap) {
@@ -141,4 +142,18 @@ function clearSelect() {
     grid[selected[i]].selected = false;
     selected.splice(i,1);
   }
+}
+
+function refresh() {
+  grid = [];
+  selected = [];
+  delArr = [];
+  setup();
+}
+
+function windowResized() {
+  let canvas_size = getSize();
+  resizeCanvas(canvas_size, canvas_size);  
+  scale = width/cols;
+  draw();
 }
