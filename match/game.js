@@ -2,6 +2,7 @@ let grid = [];
 let selected = [];
 let delArr = [];
 let scale,cols,rows,minLine,minRect,looping,alph,score,multiplier,hoverIndex,movesLeft,gameMode;
+let highscore = {}; //https://www.youtube.com/watch?v=NmXEJIBsN-4 save using local storage
 
 function getSize() {
   let canvas_size;
@@ -27,6 +28,8 @@ function setup() {
   let canvas_size = getSize();
   createCanvas(canvas_size, canvas_size);
   colorMode(HSL, 360, 100, 100);
+
+  //set variables
   cols = floor(select('#cols').value());
   if ((cols < 3 || cols > 40)) {
     alert("Number of colums must be between 3 and 40. Number set to 15.");
@@ -42,16 +45,14 @@ function setup() {
   score = 0;
   multiplier = 0;
   hoverIndex = 0;
-  movesLeft = 20;
+  movesLeft = 3;
+  gameMode = document.querySelector('input[name="gameMode"]:checked').value;
  
+  //fill board with blocks 
   for (let i = 0; i < rows * cols; i++) {
     blok = new Blok();
     grid.push(blok);     
   }
-
-  //gameMode
-  gameMode = document.querySelector('input[name="gameMode"]:checked').value;
-
   scan();
 }
 
@@ -60,7 +61,15 @@ function draw() {
   select('#scoreP').html('Score: ' + score);
   if (gameMode == 'competative') {
   select('#movesLeftP').html('Moves: ' + movesLeft);
+  highscoreT = "<table>"+
+    "<tr><td>Columns</td><td>HighScore</td></tr>"
+    for (let i in highscore) {
+      highscoreT += "<tr><td>"+i+"</td><td>"+highscore[i]+"</td></tr>"
+    }
+    highscoreT += "</table>"  
+  select('#highScoreP').html(highscoreT);
   }
+
   //fade out deleted blocks
   for (let d = 0; d < delArr.length; d++) {
     grid[delArr[d]].color[0].setAlpha(alph);
@@ -85,15 +94,15 @@ function draw() {
     }
   }
 
-  if (movesLeft == 0) {
-    gameDone();
+  if (movesLeft == 0 && gameMode == 'competative') {
+    endGame();
   }
 
-  //only draw after change on field, or during removal.
+  //only run draw() after change on board, or during removal (for fade out).
   if (looping) {
     loop();
   } else {
-    noLoop();
+    noLoop(); //save some cpu by not drawing all the time.
   }
 }
 
@@ -166,12 +175,20 @@ function clearSelect() {
   }
 }
 
+// game functions
 function endGame() {
-  //Compare score with highscore. 
-  //Write high score.
+  let b = cols.toString();
+  if (highscore[b]) {
+    if (score > highscore[b]) {
+      highscore[b] = score;
+    }
+  } else {highscore[b] = score;}
+  movesLeft = 3;
+  draw();
 }
 
 function refresh() {
+  noLoop();
   grid = [];
   selected = [];
   delArr = [];
