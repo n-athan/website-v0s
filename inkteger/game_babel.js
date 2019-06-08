@@ -4,8 +4,8 @@
 
 var cols, rows, blue, red, m, paint, guessesLeft, gameOver, go_i, canvas_size, grid, html, hue, w_input, colors_input, labels, blocksRevealed;
 getSize();
-var w = canvas_size / 10;
-var colors = 4;
+var w = canvas_size / document.getElementById("squares").value;
+var colors = document.getElementById("colors").value;
 var labels_nl = ["Rood", "Oranje", "Geel", "Lichtgroen", "Groen", "Turkoois", "Cyaan", "Blauw", "Indigo", "Paars", "Magenta","Roze", "Rood"]
 var labels_en = ["Red", "Orange", "Yellow", "Bright green", "Green", "Turquoise", "Cyan", "Blue", "Indigo", "Purple", "Magenta","Pink", "Red"]
 
