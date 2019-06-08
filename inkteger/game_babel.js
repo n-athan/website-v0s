@@ -121,6 +121,7 @@ function setup() {
   for (var i = 0; i < grid.length; i++) {
     grid[i].similarNeighbors = grid[i].countNeighbors();
   }
+  draw();
 }
 
 // actualy draws the frames
@@ -133,5 +134,8 @@ function draw() {
   if (gameOver && go_i < grid.length) {
     grid[go_i].revealed = true;
     go_i++;
+  } 
+  if (!gameOver) {
+    noLoop();
   }
 }
