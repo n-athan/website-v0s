@@ -109,10 +109,11 @@ var MENUOBJECT = function() {
     let body = document.getElementsByTagName('body')[0];
     body.insertAdjacentHTML('beforeend', menuHTML);
 
+    
     let lang = "nl";
     document.getElementById("menuNL").style.fontWeight = "bolder";
-
-    return {
+    
+    let retrn =  {
         showInterface: function() {
         // let m = document.getElementById('mouseArea');
         // m.style.color='transparent';
@@ -150,10 +151,19 @@ var MENUOBJECT = function() {
                         enp[i].style.display = 'block';
                     }
                 }
-            }
+            }            
+            retrn["lang"] = lang;
         },
         lang
     }
+
+    //detect browser language.
+    if (window.navigator.language.match("nl") || window.navigator.languages.indexOf("nl") >= 0) {
+    } else {
+        retrn.changeLanguage("en")
+    }
+
+    return retrn;
 }();
 
 //TODO make menu tab accessable!
