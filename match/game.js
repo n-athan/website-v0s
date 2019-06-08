@@ -53,6 +53,19 @@ function setup() {
     blok = new Blok();
     grid.push(blok);     
   }
+
+  if (gameMode == 'competative') {
+    select('#movesLeftP').html('Moves: ' + movesLeft);
+    highscoreT = "<table>"+
+      "<tr class='en'><td>Columns</td><td>Highscore</td></tr>" +
+      "<tr class='nl'><td>Kolommen</td><td>Highscore</td></tr>"
+      for (let i in highscore) {
+        highscoreT += "<tr><td>"+i+"</td><td>"+highscore[i]+"</td></tr>"
+      }
+      highscoreT += "</table>"  
+    select('#highScoreP').html(highscoreT);
+  }
+
   scan();
 }
 
@@ -61,13 +74,6 @@ function draw() {
   select('#scoreP').html('Score: ' + score);
   if (gameMode == 'competative') {
   select('#movesLeftP').html('Moves: ' + movesLeft);
-  highscoreT = "<table>"+
-    "<tr><td>Columns</td><td>HighScore</td></tr>"
-    for (let i in highscore) {
-      highscoreT += "<tr><td>"+i+"</td><td>"+highscore[i]+"</td></tr>"
-    }
-    highscoreT += "</table>"  
-  select('#highScoreP').html(highscoreT);
   }
 
   //fade out deleted blocks
@@ -94,7 +100,7 @@ function draw() {
     }
   }
 
-  if (movesLeft == 0 && gameMode == 'competative') {
+  if (movesLeft == 0 && gameMode == 'competative' && delArr.length == 0) {
     endGame();
   }
 
@@ -183,9 +189,7 @@ function endGame() {
       highscore[b] = score;
     }
   } else {highscore[b] = score;}
-  movesLeft = 3;
-  score = 0;
-  draw();
+  refresh();
 }
 
 function refresh() {
