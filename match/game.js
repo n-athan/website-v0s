@@ -184,6 +184,7 @@ function endGame() {
     }
   } else {highscore[b] = score;}
   movesLeft = 3;
+  score = 0;
   draw();
 }
 
