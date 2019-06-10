@@ -71,8 +71,14 @@ label {
     display: block;
 }
 
-p,table,td {
+p {
     text-align: center;
+}
+
+
+table { 
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .settings, #paintColors {
@@ -129,9 +135,9 @@ footer {
     text-decoration: none;
 }
 
-.en {
+/* .en {
     display: none;
-}
+} */
 
 [onclick]:hover {
     cursor: pointer;

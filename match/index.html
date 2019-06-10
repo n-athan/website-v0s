@@ -14,8 +14,10 @@
 <body>
     <div id="controls">
         <div class="radio">    
-            <label for="zen"><input type="radio" class="radio" name="gameMode" value="zen" id="zen" checked> Zen Mode</label>
-            <label for="competative"><input type="radio" class="radio" name="gameMode" value="competative" id="competative">Competative Mode</label>
+            <label class="en" for="zenEN"><input type="radio" class="radio" name="gameMode" value="zen" id="zenEN" checked>Zen Mode</label>
+            <label class="nl" for="zenNL"><input type="radio" class="radio" name="gameMode" value="zen" id="zenNL" checked>Zen Modus</label>
+            <label class ="en" for="competativeEN"><input type="radio" class="radio" name="gameMode" value="competative" id="competativeEN">Competative Mode</label>
+            <label class ="nl" for="competativeNL"><input type="radio" class="radio" name="gameMode" value="competative" id="competativeNL">Score Modus</label>
         </div>
         <div class="settings">
             <p class="en">#columns:</p> <p class="nl">#kolommen:</p> <input type="number" name="cols" id="cols" value="15" min="3" max="40"> 
@@ -37,6 +39,8 @@
                 <li> A match is for <b><span style="color: hsl(0,100%,40%)">red</span>, <span style="color: hsl(220,100%,40%)">blue</span>, <span style="color: hsl(60,100%,60%)">yellow</span> or <span style="color: hsl(0,100%,0%);background-color: hsla(21, 9%, 92%,0.3);">black</span></b> a row of at least 3 squares of the same color.  </li> 
                 <li> For <b><span style="color: hsl(0,0%,100%)">white</span></b>, a match is a rectangle of at least 2 by 2.  </li> 
                 <li> You can only swap squares if it results in a match. </li>
+                <li> Play Zen Mode for infinite moves. </li>
+                <li> Play Score Mode to try to beat your own highscore.</li>
             </ul>
             <h2 class="nl">Uitleg</h2>
             <ul class="nl">
@@ -45,6 +49,8 @@
                 <li>Een match is voor <b><span style="color: hsl(0,100%,40%)">rood</span>, <span style="color: hsl(220,100%,40%)">blauw</span>, <span style="color: hsl(60,100%,60%)">geel</span> of <span style="color: hsl(0,100%,0%);background-color: hsla(21, 9%, 92%,0.3);">zwart</span></b> een rij van minimaal 3 vakjes van dezelfde kleur.</li>
                 <li>Een match is voor <span style="color: hsl(0,0%,100%)">wit</span> een rechthoek van minimaal 2 bij 2. </li>
                 <li>Je kunt vakjes alleen wisselen als het resulteert in een match.</li>
+                <li>In Zen Modus krijg je oneindig veel zetten.</li>
+                <li>In Score Modus kun je je eigen highscore proberen te verbeteren.</li>
             </ul>
         </div>
 

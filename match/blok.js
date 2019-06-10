@@ -150,8 +150,8 @@ function getRects(horz) {
 
 
 function removeBlocks(delArr) {
-   
   looping = true;
+  draw();
   let deleteArr = [... new Set(delArr)]; //ES6 removes duplicates.
   let delCols = [];
   for (let j = 0; j < deleteArr.length; j++){

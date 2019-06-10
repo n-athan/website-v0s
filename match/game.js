@@ -1,7 +1,7 @@
 let grid = [];
 let selected = [];
 let delArr = [];
-let scale,cols,rows,minLine,minRect,looping,alph,score,multiplier,hoverIndex,movesLeft,gameMode;
+let scale,cols,rows,minLine,minRect,looping,alph,score,multiplier,hoverIndex,movesLeft,gameMode,end,text,a;
 let highscore = {}; //https://www.youtube.com/watch?v=NmXEJIBsN-4 save using local storage
 
 function getSize() {
@@ -42,6 +42,7 @@ function setup() {
   minRect = 2;
   looping = false;
   alph = 1;
+  a = 0;
   score = 0;
   multiplier = 0;
   hoverIndex = 0;
@@ -55,6 +56,7 @@ function setup() {
   }
 
   if (gameMode == 'competative') {
+    select('#scoreP').html('Score: ' + score);
     select('#movesLeftP').html('Moves: ' + movesLeft);
     highscoreT = "<table>"+
       "<tr class='en'><td>Columns</td><td>Highscore</td></tr>" +
@@ -71,9 +73,9 @@ function setup() {
 
 function draw() {
   background(0,0,50);
-  select('#scoreP').html('Score: ' + score);
   if (gameMode == 'competative') {
-  select('#movesLeftP').html('Moves: ' + movesLeft);
+  select('#movesLeftP').html('Moves: ' + movesLeft);  
+  select('#scoreP').html('Score: ' + score);
   }
 
   //fade out deleted blocks
@@ -102,6 +104,13 @@ function draw() {
 
   if (movesLeft == 0 && gameMode == 'competative' && delArr.length == 0) {
     endGame();
+  }
+
+  if (end) {
+    a += 0.01;
+    end.background(color(267,100,38,a));   
+    end.text(text,width/2,height/2);
+    image(end,0,0);
   }
 
   //only run draw() after change on board, or during removal (for fade out).
@@ -182,17 +191,39 @@ function clearSelect() {
 }
 
 // game functions
-function endGame() {
+function endGame() { 
   let b = cols.toString();
-  if (highscore[b]) {
-    if (score > highscore[b]) {
+  let oldScore = highscore[b];
+  if (oldScore) {
+    if (score > oldScore) {
       highscore[b] = score;
     }
-  } else {highscore[b] = score;}
-  refresh();
+  } else {highscore[b] = score;}  
+  endScreen(oldScore);
+  setTimeout(function(){end = undefined; refresh(); },3000);
+}
+
+function endScreen(highScore) {
+  end = createGraphics(width,height);
+  end.colorMode(HSL,360,100,100,1);
+  end.background(color(267,100,38,0));
+  end.textAlign(CENTER);
+  end.fill(249, 30, 10);
+  text = 'Score: ' + score; 
+  if (score > highScore || !highScore) {
+    text += '\n New Highscore!'
+  }
+  end.textFont('Space Mono');
+  end.textSize(scale);
+  end.textStyle(BOLD);
+  end.text(text,width/2,height/2);
+  looping = true;
+  movesLeft = '-'
+  draw();
 }
 
 function refresh() {
+  console.log('refresh')
   noLoop();
   grid = [];
   selected = [];
@@ -200,7 +231,6 @@ function refresh() {
   select('#movesLeftP').html('');
   select('#scoreP').html('Score: 0');
   setup();
-
 }
 
 function windowResized() {
