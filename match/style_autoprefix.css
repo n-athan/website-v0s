@@ -135,9 +135,9 @@ footer {
     text-decoration: none;
 }
 
-/* .en {
+.en {
     display: none;
-} */
+}
 
 [onclick]:hover {
     cursor: pointer;

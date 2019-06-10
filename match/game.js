@@ -1,8 +1,8 @@
 let grid = [];
 let selected = [];
 let delArr = [];
-let scale,cols,rows,minLine,minRect,looping,alph,score,multiplier,hoverIndex,movesLeft,gameMode,end,text,a;
-let highscore = {}; //https://www.youtube.com/watch?v=NmXEJIBsN-4 save using local storage
+let scale,cols,rows,minLine,minRect,looping,alph,score,multiplier,hoverIndex,movesLeft,gameMode,end,text,a,highscore;
+// let highscore = {}; //https://www.youtube.com/watch?v=NmXEJIBsN-4 save using local storage
 
 function getSize() {
   let canvas_size;
@@ -46,8 +46,15 @@ function setup() {
   score = 0;
   multiplier = 0;
   hoverIndex = 0;
-  movesLeft = 3;
+  movesLeft = 20;
   gameMode = document.querySelector('input[name="gameMode"]:checked').value;
+
+  //get Highscore
+  highscore = window.localStorage.getItem("match");
+  highscore = JSON.parse(highscore);
+  if (highscore == undefined) {
+    highscore = {};
+  }
  
   //fill board with blocks 
   for (let i = 0; i < rows * cols; i++) {
@@ -200,6 +207,8 @@ function endGame() {
     }
   } else {highscore[b] = score;}  
   endScreen(oldScore);
+  console.log(highscore);
+  window.localStorage.setItem("match", JSON.stringify(highscore));
   setTimeout(function(){end = undefined; refresh(); },3000);
 }
 
