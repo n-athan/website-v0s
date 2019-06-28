@@ -177,7 +177,7 @@ footer {
         width: 90vw;
     }
 
-    .settings {
+    .settings,.score>p {
         width: 100%;
     }
 

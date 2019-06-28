@@ -2,7 +2,6 @@ let grid = [];
 let selected = [];
 let delArr = [];
 let scale,cols,rows,minLine,minRect,looping,alph,score,multiplier,hoverIndex,movesLeft,gameMode,end,text,a,highscore;
-// let highscore = {}; //https://www.youtube.com/watch?v=NmXEJIBsN-4 save using local storage
 
 function getSize() {
   let canvas_size;
@@ -47,7 +46,7 @@ function setup() {
   multiplier = 0;
   hoverIndex = 0;
   movesLeft = 20;
-  gameMode = document.querySelector('input[name="gameMode"]:checked').value;
+  gameMode = document.querySelectorAll('input[name="gameMode"]:checked')[0].value;
 
   //get Highscore
   highscore = window.localStorage.getItem("match");
@@ -75,6 +74,7 @@ function setup() {
     select('#highScoreP').html(highscoreT);
   }
 
+  noMobileScroll();
   scan();
 }
 
@@ -247,4 +247,11 @@ function windowResized() {
   resizeCanvas(canvas_size, canvas_size);  
   scale = width/cols;
   draw();
+}
+
+function noMobileScroll() {
+  let fixed = document.getElementById('defaultCanvas0');
+    fixed.addEventListener('touchmove', function(e) {
+      e.preventDefault();
+    }, false)
 }

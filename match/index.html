@@ -13,20 +13,20 @@
 </head>
 <body>
     <div id="controls">
-        <div class="radio">    
-            <label class="en" for="zenEN"><input type="radio" class="radio" name="gameMode" value="zen" id="zenEN" checked>Zen Mode</label>
-            <label class="nl" for="zenNL"><input type="radio" class="radio" name="gameMode" value="zen" id="zenNL" checked>Zen Modus</label>
-            <label class ="en" for="competativeEN"><input type="radio" class="radio" name="gameMode" value="competative" id="competativeEN">Competative Mode</label>
-            <label class ="nl" for="competativeNL"><input type="radio" class="radio" name="gameMode" value="competative" id="competativeNL">Score Modus</label>
+        <h2 class="en">Game Mode</h2>
+        <h2 class="nl">Spelmodus</h2>
+        <div class="radio"> 
+            <label for="zen"><input type="radio" class="radio" name="gameMode" value="zen" id="zen">Zen</label>
+            <label for="competative"><input type="radio" class="radio" name="gameMode" value="competative" id="competative" checked>Score</label>
         </div>
         <div class="settings">
-            <p class="en">#columns:</p> <p class="nl">#kolommen:</p> <input type="number" name="cols" id="cols" value="15" min="3" max="40"> 
+            <p class="en">#columns:</p> <p class="nl">#kolommen:</p> <input type="number" name="cols" id="cols" value="12" min="3" max="40"> 
 
         </div>
         <div class="settings">
             <button onclick="refresh()">Start!</button>
         </div>
-        <div>
+        <div class="score">
             <p id="scoreP"></p>
             <p id="movesLeftP"></p>
             <p id="highScoreP"></p>
@@ -57,7 +57,6 @@
     </div>
     
     <script src="../libraries/menu.js"></script>
-    <script src="interface.js"></script>
     <script src="game.js"></script>        
     <script src="blok.js"></script>
     
