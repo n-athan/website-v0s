@@ -17,6 +17,7 @@ function mousePressed() {
       } else if (paint != grid[i].hue && rev == false) {
         //GAME OVER
         gameOver = true;
+        loop();
       }
     }
     if (grid[i].revealed == true) {
@@ -26,6 +27,8 @@ function mousePressed() {
   if (blocksRevealed == m && gameOver == false) {
     document.getElementsByTagName("canvas")[0].classList.add("gamewon");
   }
+  
+  draw();
 }
 
 function paintColor(hue) {

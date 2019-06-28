@@ -4,8 +4,8 @@
 
 var cols, rows, blue, red, m, paint, guessesLeft, gameOver, go_i, canvas_size, grid, html, hue, w_input, colors_input, labels, blocksRevealed;
 getSize();
-var w = canvas_size / 10;
-var colors = 4;
+var w = canvas_size / document.getElementById("squares").value;
+var colors = document.getElementById("colors").value;
 var labels_nl = ["Rood", "Oranje", "Geel", "Lichtgroen", "Groen", "Turkoois", "Cyaan", "Blauw", "Indigo", "Paars", "Magenta","Roze", "Rood"]
 var labels_en = ["Red", "Orange", "Yellow", "Bright green", "Green", "Turquoise", "Cyan", "Blue", "Indigo", "Purple", "Magenta","Pink", "Red"]
 
@@ -121,6 +121,7 @@ function setup() {
   for (var i = 0; i < grid.length; i++) {
     grid[i].similarNeighbors = grid[i].countNeighbors();
   }
+  draw();
 }
 
 // actualy draws the frames
@@ -133,5 +134,8 @@ function draw() {
   if (gameOver && go_i < grid.length) {
     grid[go_i].revealed = true;
     go_i++;
+  } 
+  if (!gameOver) {
+    noLoop();
   }
 }
