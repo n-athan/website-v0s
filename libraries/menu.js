@@ -46,6 +46,8 @@ var MENUOBJECT = function() {
                     <dd class="en"><a href="https://v0s.nl/kleuren">Naming Colors</a></dd>\
                     <dd class="nl"><a href="https://v0s.nl/kleuren">Kleur Benoemen</a><dd>\
                     <dd><a href="https://v0s.nl/eyes">Vierkante Oogjes</a></dd>\
+                    <dd class="nl"><a href="https://v0s.nl/7sans">Elke 7e letter</a></dd>\
+                    <dd class="en"><a href="https://v0s.nl/7sans">Every 7th letter</a></dd>\
                     <dd><a href="https://v0s.nl/contact">Contact</a></dd>\
                 </dt>\
                 </dt>\
