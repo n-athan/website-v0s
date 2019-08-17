@@ -1,7 +1,7 @@
 var MENUOBJECT = function() {
 
     let menuHTML = '\
-    <div id="mouseArea" onmouseover="MENUOBJECT.showInterface()" onmouseout="MENUOBJECT.hideInterface()" tabindex="1">\
+    <div id="mouseArea" onmouseover="MENUOBJECT.showInterface()" onmouseleave="MENUOBJECT.hideInterface()" tabindex="1">\
             <p id="menu">MENU</p>\
         <div id="interface">\
             <dl>\
@@ -39,6 +39,7 @@ var MENUOBJECT = function() {
                     <dd><a href="https://v0s.nl/inkteger">Inkteger</a></dd>\
                     <dd><a href="https://v0s.nl/spinners">Spinners</a></dd>\
                     <dd><a href="https://v0s.nl/match">Match</a></dd>\
+                    <dd><a href="https://v0s.nl/vier">Vier (Tetris)</a></dd>\
                 </dt>\
                 </dt>\
                 <dt class="en"> Miscellaneous\
@@ -135,15 +136,11 @@ var MENUOBJECT = function() {
     
     let retrn =  {
         showInterface: function() {
-        // let m = document.getElementById('mouseArea');
-        // m.style.color='transparent';
         let i = document.getElementById('interface');
         i.style.display='block';
         },
 
         hideInterface: function() {
-        // let m = document.getElementById('mouseArea');
-        // m.style.color='initial';
         let i = document.getElementById('interface');
         i.style.display='none';
         },
