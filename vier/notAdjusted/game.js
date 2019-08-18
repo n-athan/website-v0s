@@ -2,16 +2,36 @@
 let c,r,a;
 let q;
 let score;
-let morelines, fourlines, threelines, twolines, oneline;
+let morelines, fourlines, threelines, oneline, amp;
 let gameOver;
 let pauze;
+
+function getSize() {
+  let canvas_size;
+  if (window.innerWidth < 450) {
+      canvas_size = 400;
+  } else if (window.innerWidth < 900) {
+      let w_col = window.innerWidth * 0.7;
+      if (w_col > window.innerHeight) {
+          canvas_size = window.innerHeight - 250;
+           
+      } else {canvas_size = Math.floor(w_col)}
+  } else {
+      let w_col = document.getElementById("controls").offsetWidth;
+      if (w_col > window.innerHeight) {
+          canvas_size = window.innerHeight - 50
+           
+      } else {canvas_size = Math.floor(w_col)}
+  }
+  return canvas_size;
+}
 
 function preload() {
   hit = loadSound("tetrisSounds\\hit.mp3"); 
 }
 
 function setup() {
-    scl = 25;
+	  let canvas_size = getSize();
     cols = floor(select('#cols').value());
     if ((cols < 3 || cols > 40)) {
         alert("Number of colums must be between 3 and 40. Number set to 15.");
@@ -23,7 +43,9 @@ function setup() {
         alert("Number of rows must be between 3 and 40. Number set to 15.");
         rows = 15;
         select('#rows').value(15);
-    }
+		}
+		scl = min(min(25,canvas_size/cols),min(25,canvas_size/rows));
+		scl = floor(scl);
     w = cols*scl;
     h = rows*scl;
 
@@ -40,7 +62,7 @@ function setup() {
     pauze = false;
 
 
-    let k =0;
+    let k = 0;
     for (let i = 0; i < r; i++) {
         for (let j = 0; j < c; j++) {
             grid[k] = [0,0,0,0];
@@ -65,14 +87,13 @@ function setup() {
       highscoreT += "</table>"  
     select('#highScoreP').html(highscoreT);
 
-    
-    document.getElementById('defaultCanvas0').focus()
+		noScroll();		
+		document.getElementById('defaultCanvas0').focus()
     
     hit.setVolume(0.1);
     morelines = loadSound('tetrisSounds\\moreLines.mp3'); 
     fourlines = loadSound('tetrisSounds\\4lines.mp3'); 
     threelines = loadSound('tetrisSounds\\3lines.mp3'); 
-    twolines = loadSound('tetrisSounds\\2lines.mp3'); 
     oneline = loadSound('tetrisSounds\\1line.mp3'); 
 }
 
@@ -89,9 +110,6 @@ function draw() {
 	    rect(j*scl,i*scl,scl,scl); 
 	  }
 	}
-	
-	
-	removeLine();
 	
 	if(!gameOver){        
 	isGameOver();
@@ -127,25 +145,29 @@ function keyPressed() {
 
 function removeLine() {
 	let lines = 0;
+	let toRemove =[];
 	for (let i = r-1; i >= 0; i--) {
 	  let blockCounter = 0;
 	  for (let j = 0; j < c; j++) { 
 	    if (alpha(grid[i*c+j]) == 0) {
-	      j += c+1
+	      j += c
 	    } else if (alpha(grid[i*c+j]) > 0) {
 	      blockCounter += 1;
 	      if (blockCounter == c){
 	        score += c;
-	        lines += 1;
-	        for (let y = i; y > 0; y--) {
-	          for (let x = 0; x < c; x++) {
-	            grid[y*c+x] = grid[(y-1)*c+x]
-	          }
-	        }
+					lines += 1;
+					toRemove.push(i);
 	        checkSpeed();
 	      }
 	    }
 	  }
+	}
+	for (let k = toRemove.length; k >= 0 ; k --) {
+		for (let y = toRemove[k]; y > 0; y--) {
+			for (let x = 0; x < c; x++) {
+				grid[y*c+x] = grid[(y-1)*c+x]
+			}
+		}
 	}
 	playSound(lines);
 }
@@ -158,14 +180,12 @@ function checkSpeed() {
 }
 
 function playSound(lines) {
-	if (lines >= 5) {
+	if (lines >= 4) {
 	    morelines.play();
-	} else if (lines == 4) {
-	    fourlines.play();
 	} else if (lines == 3) {
-	    threelines.play();
+	    fourlines.play();
 	} else if (lines == 2) {
-	    twolines.play();
+			threelines.play();
 	} else if (lines == 1) {
 	    oneline.play();
 	}
@@ -174,7 +194,6 @@ function playSound(lines) {
 function isGameOver() {
 	for (let i = 0; i <= c; i++) {
 	   if (alpha(grid[i]) > 0) {
-	     console.log('game over');
          gameOver = true;
          endGame();
 	   }
@@ -184,10 +203,9 @@ function isGameOver() {
 
 //Interface
 function refresh() {
-	  console.log('refresh')
 	  select('#scoreP').html('Score: 0');
 	  setup();
-    }
+}
 
 function endGame() { 
     let b = cols.toString() + "x" + rows.toString();
@@ -198,7 +216,6 @@ function endGame() {
         }
     } else {highscore[b] = score;}  
     endScreen(oldScore);
-    console.log(highscore);
     window.localStorage.setItem("vier", JSON.stringify(highscore));
     setTimeout(function(){end = undefined; refresh(); },3000);
     }
@@ -219,6 +236,15 @@ function endScreen(highScore) {
     end.textStyle(BOLD);
     end.text(text,width/2,height/2);
     movesLeft = '-'
+}
+
+function noScroll() {
+  let fixed = document.getElementsByTagName('body')[0];
+    fixed.addEventListener('keydown', function(e) {
+			var key = e.which;
+      if(key==35 || key == 36 || key == 37 || key == 39 || key == 32) {
+      e.preventDefault(); }
+    }, false)
 }
 
 //Quatra Class
@@ -324,7 +350,10 @@ stopMoving(dir,vel){
 	                       alpha(this.clr)];
 	      }
 	    }
-	  }
+		}
+		noLoop();
+		removeLine();
+		loop();
 	  q = new Quatra(); 
 	  return true;
 	} 
